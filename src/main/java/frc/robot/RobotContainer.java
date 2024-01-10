@@ -4,8 +4,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.subsystems.RomiDrivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -16,10 +17,14 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final RomiDrivetrain m_romiDrivetrain = new RomiDrivetrain();
+  // The robot's subsystems and commands are defined (- and initialized) here...
+  private final RomiDrivetrain romiDrivetrain = new RomiDrivetrain();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_romiDrivetrain);
+  private final Joystick controller = new Joystick(0);
+  private final XboxController xbox = new XboxController(0);
+
+  private final ArcadeDrive m_autoCommand = new ArcadeDrive(
+    romiDrivetrain, () -> -controller.getRawAxis(1), () -> -controller.getRawAxis(0));
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -33,7 +38,14 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    // - Set ArcadeDrive as the default command, which runs automatically unless another command is scheduled before it
+    romiDrivetrain.setDefaultCommand(
+      new ArcadeDrive(
+        romiDrivetrain, () -> -controller.getRawAxis(1), () -> -controller.getRawAxis(0))
+        // - Empty parentheses followed by a lambda or "() -> ..." allow the controller function return value to act as a Supplier
+    );
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
