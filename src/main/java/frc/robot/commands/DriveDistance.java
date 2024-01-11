@@ -34,7 +34,9 @@ public class DriveDistance extends CommandBase {
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    drive.arcadeDrive(0, 0);
+  }
 
   @Override
   public boolean isFinished() {

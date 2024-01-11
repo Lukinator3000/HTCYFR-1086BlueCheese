@@ -3,7 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.RomiDrivetrain;
 
-/* - An TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
+/* - A TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
 public class TurnDegrees extends CommandBase {
   // - Initializing Drivetrain, turn speed and desired degrees variables
   private final RomiDrivetrain drive;
@@ -24,7 +24,7 @@ public class TurnDegrees extends CommandBase {
 
   @Override
   public void initialize() {
-    drive.resetGyro(); // Resets drivetrain gyro measurements back to 0
+    drive.resetGyro(); // - Resets drivetrain gyro measurements back to 0
     drive.arcadeDrive(0, 0);
   }
 
@@ -34,7 +34,9 @@ public class TurnDegrees extends CommandBase {
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    drive.arcadeDrive(0, 0);
+  }
 
   @Override
   public boolean isFinished() {

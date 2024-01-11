@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -12,6 +13,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.DriveTime;
 import frc.robot.commands.SquareDrive;
 import frc.robot.commands.TankDrive;
+import frc.robot.commands.TurnDegreesPID;
 import frc.robot.commands.TurnTime;
 import frc.robot.subsystems.RomiDrivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,6 +33,8 @@ public class RobotContainer {
   // - Depending on which port your designated controller is connected to, change the port number to it in the parentheses
   private final Joystick controller = new Joystick(0);
   private final CommandXboxController xbox = new CommandXboxController(0);
+
+  private PIDController pid = new PIDController(0.023, 0.001, 0.002);
 
   private final SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -57,6 +61,9 @@ public class RobotContainer {
     // - When the 'a' button of the Xbox controller is pressed, this code toggles on (or off) the TankDrive command
     xbox.a().toggleOnTrue(
       new TankDrive(romiDrivetrain, () -> xbox.getHID().getLeftTriggerAxis(), () -> xbox.getHID().getRightTriggerAxis()));
+    xbox.b().toggleOnTrue(
+      new TurnDegreesPID(90, romiDrivetrain, pid));
+    
     /*
     // - If you don't have a Xbox controller, comment out "xbox.a()..." part above and delete the multi-line comments for this code
     new JoystickButton(controller, 1).toggleOnTrue(
@@ -67,7 +74,7 @@ public class RobotContainer {
     chooser.setDefaultOption("Drive Time Auto", new DriveTime(0.5, 2, romiDrivetrain));
     chooser.addOption("Turn Time Auto", new TurnTime(0.5, 2, romiDrivetrain));
     chooser.addOption("Drive in a Square Auto", new SquareDrive(romiDrivetrain));
-    SmartDashboard.putData(chooser);
+    SmartDashboard.putData(chooser); // - Puts chooser into SmartDashboard to interact with when simulating the Romi
   }
 
   /**
@@ -79,4 +86,5 @@ public class RobotContainer {
     // - The command selected by the SendableChooser on SmartDashboard will run in autonomous
     return chooser.getSelected();
   }
+
 }

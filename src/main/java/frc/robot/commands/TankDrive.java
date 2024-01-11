@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.RomiDrivetrain;
 
-/* - An TankDrive command that, when toggled, allows you to drive both your left & right motors separately */
+/* - A TankDrive command that, when toggled, allows you to drive both your left & right motors separately */
 public class TankDrive extends CommandBase {
   // - Initializing Drivetrain and supplier values
   private final RomiDrivetrain drive;
@@ -37,7 +37,9 @@ public class TankDrive extends CommandBase {
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    drive.arcadeDrive(0, 0);
+  }
 
   @Override
   public boolean isFinished() {

@@ -3,7 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.RomiDrivetrain;
 
-/* - An DriveTime autonomous command that instructs your Romi to drive for certain duration of time */
+/* - A DriveTime autonomous command that instructs your Romi to drive for certain duration of time */
 public class DriveTime extends CommandBase {
   // - Initializing Drivetrain, speed and duration variables
   private final RomiDrivetrain drive;
@@ -35,7 +35,9 @@ public class DriveTime extends CommandBase {
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    drive.arcadeDrive(0, 0);
+  }
 
   // - When the time inputted has elapsed, 'isFinished()' returns true and ends the command
   @Override
