@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /* - An ArcadeDrive command that runs during TeleOp phase for manual driving of your Romi */
 public class ArcadeDrive extends CommandBase {
   //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-
+  
   // - Initializing Drivetrain and supplier variables
   private final RomiDrivetrain drive;
   private final Supplier<Double> speedSupplier;

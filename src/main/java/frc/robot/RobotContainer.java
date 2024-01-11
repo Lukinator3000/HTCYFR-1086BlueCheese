@@ -7,8 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.RomiDrivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -20,8 +23,9 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined (- and initialized) here...
   private final RomiDrivetrain romiDrivetrain = new RomiDrivetrain();
 
+  // - Change
   private final Joystick controller = new Joystick(0);
-  private final XboxController xbox = new XboxController(0);
+  private final CommandXboxController xbox = new CommandXboxController(0);
 
   private final ArcadeDrive m_autoCommand = new ArcadeDrive(
     romiDrivetrain, () -> -controller.getRawAxis(1), () -> -controller.getRawAxis(0));
@@ -45,6 +49,17 @@ public class RobotContainer {
         romiDrivetrain, () -> -controller.getRawAxis(1), () -> -controller.getRawAxis(0))
         // - Empty parentheses followed by a lambda or "() -> ..." allow the controller function return value to act as a Supplier
     );
+    
+    // When the 'a' button of the Xbox controller is pressed, this code toggles on (or off) the TankDrive command
+    xbox.a().toggleOnTrue(
+      new TankDrive(romiDrivetrain, () -> xbox.getHID().getLeftTriggerAxis(), () -> xbox.getHID().getRightTriggerAxis()));
+
+    /*
+    // - If you don't have a Xbox controller, comment out "xbox.a()..." part above and delete the multi-line comments for this code
+    new JoystickButton(controller, 1).toggleOnTrue(
+      new TankDrive(romiDrivetrain, () -> controller.getRawAxis(2), () -> controller.getRawAxis(3)));
+    */
+
   }
 
   /**

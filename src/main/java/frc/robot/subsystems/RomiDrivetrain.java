@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class RomiDrivetrain extends SubsystemBase {
@@ -52,6 +53,14 @@ public class RomiDrivetrain extends SubsystemBase {
 
   public double getRightDistanceInch() {
     return m_rightEncoder.getDistance();
+  }
+
+  // - Methods to set speed on specific wheel motors to allow tank drivea
+  public void setLeftMotor(double value) {
+    m_leftMotor.set(value);
+  }
+  public void setRightMotor(double value) {
+    m_rightMotor.set(value);
   }
 
   @Override
