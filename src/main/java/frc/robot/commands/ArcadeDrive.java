@@ -22,7 +22,7 @@ public class ArcadeDrive extends CommandBase {
   /**
    * - Creates a new ArcadeDrive command
    *
-   * @param subsystem The subsystem used by this command.
+   * @param subsystem The drivetrain subsystem used by this command.
    */
   public ArcadeDrive(RomiDrivetrain subsystem, Supplier<Double> speed, Supplier<Double> turn) {
     drive = subsystem;
@@ -55,4 +55,5 @@ public class ArcadeDrive extends CommandBase {
   public boolean isFinished() {
     return false;
   }
+
 }

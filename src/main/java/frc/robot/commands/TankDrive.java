@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.RomiDrivetrain;
 
+/* - An TankDrive command that, when toggled, allows you to drive both your left & right motors separately */
 public class TankDrive extends CommandBase {
   // - Initializing Drivetrain and supplier values
   private final RomiDrivetrain drive;
@@ -14,13 +15,12 @@ public class TankDrive extends CommandBase {
   /**
    * - Creates a new TankDrive command
    *
-   * @param subsystem The subsystem used by this command.
+   * @param subsystem The drivetrain subsystem used by this command.
    */
   public TankDrive(RomiDrivetrain subsystem, Supplier<Double> left, Supplier<Double> right) {
     drive = subsystem;
     leftSupplier = left;
     rightSupplier = right;
-    // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
 
@@ -32,8 +32,8 @@ public class TankDrive extends CommandBase {
 
   @Override
   public void execute() {
-    drive.setLeftMotor(leftSupplier.get()); // Sets power of left motor from leftSupplier values
-    drive.setRightMotor(rightSupplier.get()); // Sets power of right motor from rightSupplier values
+    drive.setLeftMotor(leftSupplier.get()); // - Sets power of left motor from leftSupplier values
+    drive.setRightMotor(rightSupplier.get()); // - Sets power of right motor from rightSupplier values
   }
 
   @Override
