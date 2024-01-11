@@ -3,13 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.RomiDrivetrain;
 
-/* - An TurnTime autonomous command that instructs your Romi to turn for certain duration of time */
+/* - An TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
 public class TurnDegrees extends CommandBase {
-  // - Initializing Drivetrain, speed and duration variables
+  // - Initializing Drivetrain, turn speed and desired degrees variables
   private final RomiDrivetrain drive;
   private final double turnSpeed;
   private final double degrees;
-  private long startTime;
 
   /**
    * - Creates a new TurnTime command
@@ -25,6 +24,7 @@ public class TurnDegrees extends CommandBase {
 
   @Override
   public void initialize() {
+    drive.resetGyro(); // Resets drivetrain gyro measurements back to 0
     drive.arcadeDrive(0, 0);
   }
 
@@ -36,23 +36,10 @@ public class TurnDegrees extends CommandBase {
   @Override
   public void end(boolean interrupted) {}
 
-  // - Following code copied from Example Romi project TurnDegrees command
   @Override
   public boolean isFinished() {
-    /* Need to convert distance travelled to degrees. The Standard
-       Romi Chassis found here, https://www.pololu.com/category/203/romi-chassis-kits,
-       has a wheel placement diameter (149 mm) - width of the wheel (8 mm) = 141 mm
-       or 5.551 inches. We then take into consideration the width of the tires.
-    */
-    double inchPerDegree = Math.PI * 5.551 / 360;
-    // Compare distance travelled from start to distance based on degree turn
-    return getAverageTurningDistance() >= (inchPerDegree * degrees);
-  }
-
-  private double getAverageTurningDistance() {
-    double leftDistance = Math.abs(drive.getLeftDistanceInch());
-    double rightDistance = Math.abs(drive.getRightDistanceInch());
-    return (leftDistance + rightDistance) / 2.0;
+    // - Returns true if the amount of rotational difference (in Z axis) since the start reaches the desired number of degrees
+    return Math.abs(drive.getGyroAngleZ()) >= degrees;
   }
 
 }

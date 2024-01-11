@@ -13,6 +13,7 @@ public class Gyro {
   private double angleOffsetY;
   private double angleOffsetZ;
 
+  /** - Creates a new Gyro class */
   public Gyro() {
     SimDevice gyroSimDevice = SimDevice.create("Gyro:RomiGyro");
     if (gyroSimDevice != null) {
@@ -27,6 +28,7 @@ public class Gyro {
     }
   }
 
+  // - Getter methods for retrieving the SimDoubles angle measurements
   public double getAngleX() {
     if (angleX != null) {
       return angleX.get() - angleOffsetX;
@@ -46,6 +48,9 @@ public class Gyro {
     return 0;
   }
 
+  /* - Resets the angle measurements of the SimDoubles by setting the offsets to equal the current angle measurements, 
+   *   essentially setting the SimDouble measurements back to zero
+  */
   public void reset() {
     if (angleX != null) {
         angleOffsetX = angleX.get();

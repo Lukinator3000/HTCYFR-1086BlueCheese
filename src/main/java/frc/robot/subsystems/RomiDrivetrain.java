@@ -58,6 +58,11 @@ public class RomiDrivetrain extends SubsystemBase {
     return m_rightEncoder.getDistance();
   }
 
+  // - Finds the mean of the distances (in inches) measured by both left and right encoders
+  public double getAverageDistanceInch() {
+    return (getLeftDistanceInch() + getRightDistanceInch()) / 2;
+  }
+
   // - Methods to set speed on specific wheel motors to allow tank drivea
   public void setLeftMotor(double value) {
     m_leftMotor.set(value);
@@ -66,7 +71,7 @@ public class RomiDrivetrain extends SubsystemBase {
     m_rightMotor.set(value);
   }
 
-  // Getter methods for retrieving Romi angle measurements from the gyro object
+  // - Getter methods for retrieving Romi angle measurements from the gyro object
   public double getGyroAngleX() {
     return gyro.getAngleX();
   }
@@ -77,12 +82,19 @@ public class RomiDrivetrain extends SubsystemBase {
     return gyro.getAngleZ();
   }
 
+  // - Function to reset Gyro measurements to 0
+  public void resetGyro() {
+    gyro.reset();
+  }
+
   // This method will be called once per scheduler run
   @Override
   public void periodic() {
+    // - Outputting Encoder distance measurements to SmartDashboard
     SmartDashboard.putNumber("Left Encoder Distance", getLeftDistanceInch());
     SmartDashboard.putNumber("Right Encoder Distance", getRightDistanceInch());
 
+    // - Outputting Gyro angle measurements to SmartDashboard
     SmartDashboard.putNumber("Angle X", gyro.getAngleX());
     SmartDashboard.putNumber("Angle Y", gyro.getAngleY());
     SmartDashboard.putNumber("Angle Z", gyro.getAngleZ());
