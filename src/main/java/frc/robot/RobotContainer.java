@@ -7,8 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.DriveTime;
+import frc.robot.commands.SquareDrive;
 import frc.robot.commands.TankDrive;
 import frc.robot.commands.TurnTime;
 import frc.robot.subsystems.RomiDrivetrain;
@@ -64,6 +66,8 @@ public class RobotContainer {
     // - Adding the command options to select from in SendableChooser, DriveTime being the default that's already selected
     chooser.setDefaultOption("Drive Time Auto", new DriveTime(0.5, 2, romiDrivetrain));
     chooser.addOption("Turn Time Auto", new TurnTime(0.5, 2, romiDrivetrain));
+    chooser.addOption("Drive in a Square Auto", new SquareDrive(romiDrivetrain));
+    SmartDashboard.putData(chooser);
   }
 
   /**

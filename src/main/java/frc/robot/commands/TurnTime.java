@@ -31,7 +31,7 @@ public class TurnTime extends CommandBase {
 
   @Override
   public void execute() {
-    drive.arcadeDrive(turnSpeed, 0);
+    drive.arcadeDrive(0, turnSpeed);
   }
 
   @Override
