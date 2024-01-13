@@ -16,6 +16,8 @@ public class TankDrive extends CommandBase {
    * - Creates a new TankDrive command
    *
    * @param subsystem The drivetrain subsystem used by this command.
+   * @param left The speed value given to the left gearmotor, continually supplied through the command duration.
+   * @param right The speed value given to the right gearmotor, continually supplied through the command duration.
    */
   public TankDrive(RomiDrivetrain subsystem, Supplier<Double> left, Supplier<Double> right) {
     drive = subsystem;

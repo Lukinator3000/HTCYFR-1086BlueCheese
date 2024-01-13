@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.sensors.Gyro;
 
+/* - Romi Drivetrain subsystem class that initializes and contains functions to interact with the motors, wheel measurements, 
+ *    and sensors for other project files to utilize
+*/
 public class RomiDrivetrain extends SubsystemBase {
   private static final double kCountsPerRevolution = 1440.0;
   private static final double kWheelDiameterInch = 2.75591; // 70 mm

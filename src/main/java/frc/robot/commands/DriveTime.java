@@ -14,6 +14,8 @@ public class DriveTime extends CommandBase {
   /**
    * - Creates a new ArcadeDrive command
    *
+   * @param speed The speed value given.
+   * @param seconds The number of seconds the command will last.
    * @param subsystem The drivetrain subsystem used by this command.
    */
   public DriveTime(double speed, double seconds, RomiDrivetrain subsystem) {

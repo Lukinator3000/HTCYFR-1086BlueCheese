@@ -11,9 +11,7 @@ import java.util.function.Supplier;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /* - An ArcadeDrive command that runs during TeleOp phase for manual driving of your Romi */
-public class ArcadeDrive extends CommandBase {
-  //@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  
+public class ArcadeDrive extends CommandBase {  
   // - Initializing Drivetrain and supplier variables
   private final RomiDrivetrain drive;
   private final Supplier<Double> speedSupplier;
@@ -23,6 +21,8 @@ public class ArcadeDrive extends CommandBase {
    * - Creates a new ArcadeDrive command
    *
    * @param subsystem The drivetrain subsystem used by this command.
+   * @param speed The speed value continually supplied through the command duration.
+   * @param turn The turn speed value continually supplied through the command duration.
    */
   public ArcadeDrive(RomiDrivetrain subsystem, Supplier<Double> speed, Supplier<Double> turn) {
     drive = subsystem;

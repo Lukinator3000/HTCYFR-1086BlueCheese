@@ -10,19 +10,19 @@ public class SquareDrive extends SequentialCommandGroup {
   /**
    * - Creates a new SquareDrive command composition
    * 
-   * @param drive The drivetrain subsystem this command will run on
+   * @param drive The drivetrain subsystem this command will run on.
   */
   public SquareDrive(RomiDrivetrain drive) {
     // - Function that groups commands together into one command composition
     addCommands(
-      new DriveDistance(0.5, 5, drive),
-      new TurnDegrees(1, 90, drive),
-      new DriveDistance(0.5, 5, drive),
-      new TurnDegrees(1, 90, drive),
-      new DriveDistance(0.5, 5, drive),
-      new TurnDegrees(1, 90, drive),
-      new DriveDistance(0.5, 5, drive),
-      new TurnDegrees(1, 90, drive)
+      new DriveDistance(0.5, 12, drive),
+      new TurnDegrees(0.4, 90, drive),
+      new DriveDistance(0.5, 12, drive),
+      new TurnDegrees(0.4, 90, drive),
+      new DriveDistance(0.5, 12, drive),
+      new TurnDegrees(0.4, 90, drive),
+      new DriveDistance(0.5, 12, drive),
+      new TurnDegrees(0.4, 90, drive)
     );    
   }
 

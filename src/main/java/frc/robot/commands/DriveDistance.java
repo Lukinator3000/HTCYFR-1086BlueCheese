@@ -13,6 +13,8 @@ public class DriveDistance extends CommandBase {
   /**
    * - Creates a new DriveDistance command
    *
+   * @param speed The speed value given.
+   * @param inches The number of inches the Romi is intended to travel.
    * @param subsystem The drivetrain subsystem used by this command.
    */
   public DriveDistance(double speed, double inches, RomiDrivetrain subsystem) {

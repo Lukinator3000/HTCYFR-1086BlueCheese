@@ -6,9 +6,9 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.subsystems.RomiDrivetrain;
 
+/* - A TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
 public class TurnDegreesPID extends CommandBase {
   // - Initializing Drivetrain, PID controller, and supplier variables
   private RomiDrivetrain drive;
@@ -18,8 +18,9 @@ public class TurnDegreesPID extends CommandBase {
   /**
    * - Turns robot to the specified angle using a PID feedback loop
    *
-   * @param targetAngleDegrees The angle to turn to
-   * @param drive The drive subsystem to use
+   * @param targetAngle The angle to turn to.
+   * @param drive The drive subsystem to use.
+   * @param pidInput The PID Controller to calculate turn speed based on the relationship between current and target angle. 
   */
   public TurnDegreesPID(double targetAngle, RomiDrivetrain drive, PIDController pidInput) {
     this.drive = drive;
@@ -30,12 +31,13 @@ public class TurnDegreesPID extends CommandBase {
     pid.setSetpoint(targetAngle);
     // - Enables the controller to be continuous, specifically for angle PIDs
     pid.enableContinuousInput(-180, 180); 
-    // - Sets the controller tolerance so the command ends when Romi is within range of targetAngle by 1 degree
-    pid.setTolerance(1); 
+    // - Sets the controller tolerance so the command ends when Romi is within range of targetAngle by 2 degree
+    pid.setTolerance(2); 
 
-    SmartDashboard.putNumber("PID Calc", getSpeedCalc());
-    SmartDashboard.putNumber("Current Angle", measurement.getAsDouble());
-    SmartDashboard.putNumber("Setpoint", pid.getSetpoint());
+    // - Puts these values into SmartDashboard at the start of simulation, before the command is even scheduled
+    SmartDashboard.putNumber("PID - Calc", getSpeedCalc());
+    SmartDashboard.putNumber("PID - AngleMeas", measurement.getAsDouble());
+    SmartDashboard.putNumber("PID - Setpoint", pid.getSetpoint());
     SmartDashboard.putData("Turn PID Controller", pid);
   }
 
@@ -51,10 +53,10 @@ public class TurnDegreesPID extends CommandBase {
     drive.arcadeDrive(0, getSpeedCalc());
 
     // - Outputting PID loop values to SmartDashboard
-    SmartDashboard.putNumber("PID calc", getSpeedCalc());
-    SmartDashboard.putNumber("Setpoint", pid.getPositionError());
-    SmartDashboard.putNumber("AngleMeas", measurement.getAsDouble());
-    SmartDashboard.putNumber("Error", pid.getPositionError()); // Outputs the current difference between measurement & setpoint
+    SmartDashboard.putNumber("PID - Calc", getSpeedCalc());
+    SmartDashboard.putNumber("PID - AngleMeas", measurement.getAsDouble());
+    SmartDashboard.putNumber("PID - Setpoint", pid.getPositionError());
+    SmartDashboard.putNumber("PID - Error", pid.getPositionError()); // Outputs the current difference between measurement & setpoint
     SmartDashboard.putBoolean("Finished", isFinished()); // Outputs true on SmartDashboard when the PID loop ends
   }
 

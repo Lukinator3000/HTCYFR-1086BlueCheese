@@ -13,6 +13,8 @@ public class TurnDegrees extends CommandBase {
   /**
    * - Creates a new TurnTime command
    *
+   * @param turnSpeed The turn speed value given.
+   * @param degrees The number of degrees the Romi is intended to rotate.
    * @param subsystem The drivetrain subsystem used by this command.
    */
   public TurnDegrees(double turnSpeed, double degrees, RomiDrivetrain subsystem) {
@@ -41,7 +43,7 @@ public class TurnDegrees extends CommandBase {
   @Override
   public boolean isFinished() {
     // - Returns true if the amount of rotational difference (in Z axis) since the start reaches the desired number of degrees
-    return Math.abs(drive.getGyroAngleZ()) >= degrees;
+    return Math.abs(drive.getGyroAngleZ()) >= degrees - 5;
   }
 
 }

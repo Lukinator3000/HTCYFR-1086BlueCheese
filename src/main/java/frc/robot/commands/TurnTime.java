@@ -14,6 +14,8 @@ public class TurnTime extends CommandBase {
   /**
    * - Creates a new TurnTime command
    *
+   * @param speed The turn speed value given.
+   * @param seconds The number of seconds the command will last.
    * @param subsystem The drivetrain subsystem used by this command.
    */
   public TurnTime(double turnSpeed, double seconds, RomiDrivetrain subsystem) {

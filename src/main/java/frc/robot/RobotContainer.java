@@ -34,7 +34,8 @@ public class RobotContainer {
   private final Joystick controller = new Joystick(0);
   private final CommandXboxController xbox = new CommandXboxController(0);
 
-  private PIDController pid = new PIDController(0.023, 0.001, 0.002);
+  // - kp, ki, and kd will likely need to be different than the following arguments, based on what works well for your Romi when tuning
+  private PIDController turnPID = new PIDController(0.012, 0.001, 0.002);
 
   private final SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -61,18 +62,26 @@ public class RobotContainer {
     // - When the 'a' button of the Xbox controller is pressed, this code toggles on (or off) the TankDrive command
     xbox.a().toggleOnTrue(
       new TankDrive(romiDrivetrain, () -> xbox.getHID().getLeftTriggerAxis(), () -> xbox.getHID().getRightTriggerAxis()));
+    /* - When the 'b' button of the Xbox controller is pressed, this code toggles the TurnDegreesPID command. 
+     *   The command should automatically stop when it reaches the setpoint, but in cases that it doesn't, you can
+     *   press 'b' again to toggle the command off (and toggle on again if pressed another time) 
+    */
     xbox.b().toggleOnTrue(
-      new TurnDegreesPID(90, romiDrivetrain, pid));
+      new TurnDegreesPID(90, romiDrivetrain, turnPID));
     
     /*
+    
     // - If you don't have a Xbox controller, comment out "xbox.a()..." part above and delete the multi-line comments for this code
     new JoystickButton(controller, 1).toggleOnTrue(
       new TankDrive(romiDrivetrain, () -> controller.getRawAxis(2), () -> controller.getRawAxis(3)));
+    new JoystickButton(controller, 1).toggleOnTrue(
+      new TurnDegreesPID(90, romiDrivetrain, turnPID))
+
     */
 
     // - Adding the command options to select from in SendableChooser, DriveTime being the default that's already selected
     chooser.setDefaultOption("Drive Time Auto", new DriveTime(0.5, 2, romiDrivetrain));
-    chooser.addOption("Turn Time Auto", new TurnTime(0.5, 2, romiDrivetrain));
+    chooser.addOption("Turn Time Auto", new TurnTime(0.75, 2, romiDrivetrain));
     chooser.addOption("Drive in a Square Auto", new SquareDrive(romiDrivetrain));
     SmartDashboard.putData(chooser); // - Puts chooser into SmartDashboard to interact with when simulating the Romi
   }
