@@ -26,7 +26,7 @@ public class Gyro {
 
   /** Create a new RomiGyro. */
   public Gyro() {
-    SimDevice gyroSimDevice = SimDevice.create("Gyro:RomiGyro"); // Creating SimDevice
+    SimDevice gyroSimDevice = SimDevice.create("Gyro:RomiGyro"); // - Creating SimDevice
     if (gyroSimDevice != null) {
       gyroSimDevice.createBoolean("init", Direction.kOutput, true);
       m_simRateX = gyroSimDevice.createDouble("rate_x", Direction.kInput, 0.0);
