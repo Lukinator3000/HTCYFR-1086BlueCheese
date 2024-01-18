@@ -13,6 +13,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.DriveTime;
 import frc.robot.commands.SquareDrive;
 import frc.robot.commands.TankDrive;
+import frc.robot.commands.TurnDegrees;
 import frc.robot.commands.TurnDegreesPID;
 import frc.robot.commands.TurnTime;
 import frc.robot.subsystems.RomiDrivetrain;
@@ -81,7 +82,7 @@ public class RobotContainer {
 
     // - Adding the command options to select from in SendableChooser, DriveTime being the default that's already selected
     chooser.setDefaultOption("Drive Time Auto", new DriveTime(0.5, 2, romiDrivetrain));
-    chooser.addOption("Turn Time Auto", new TurnTime(0.75, 2, romiDrivetrain));
+    chooser.addOption("Turn Time Auto", new TurnTime(0.5, 5, romiDrivetrain));
     chooser.addOption("Drive in a Square Auto", new SquareDrive(romiDrivetrain));
     SmartDashboard.putData(chooser); // - Puts chooser into SmartDashboard to interact with when simulating the Romi
   }
