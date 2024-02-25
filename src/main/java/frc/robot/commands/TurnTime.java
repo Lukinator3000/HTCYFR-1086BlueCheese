@@ -1,10 +1,10 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.RomiDrivetrain;
 
 /* - A TurnTime autonomous command that instructs your Romi to turn for certain duration of time */
-public class TurnTime extends CommandBase {
+public class TurnTime extends Command {
   // - Initializing Drivetrain, speed and duration variables
   private final RomiDrivetrain drive;
   private final double turnSpeed;

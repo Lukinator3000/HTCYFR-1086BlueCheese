@@ -2,11 +2,11 @@ package frc.robot.commands;
 
 import java.util.function.Supplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.RomiDrivetrain;
 
 /* - A TankDrive command that, when toggled, allows you to drive both your left & right motors separately */
-public class TankDrive extends CommandBase {
+public class TankDrive extends Command {
   // - Initializing Drivetrain and supplier values
   private final RomiDrivetrain drive;
   private final Supplier<Double> leftSupplier;

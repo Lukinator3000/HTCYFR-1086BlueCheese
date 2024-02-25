@@ -8,10 +8,10 @@ import frc.robot.subsystems.RomiDrivetrain;
 
 import java.util.function.Supplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 /* - An ArcadeDrive command that runs during TeleOp phase for manual driving of your Romi */
-public class ArcadeDrive extends CommandBase {  
+public class ArcadeDrive extends Command {  
   // - Initializing Drivetrain and supplier variables
   private final RomiDrivetrain drive;
   private final Supplier<Double> speedSupplier;

@@ -5,11 +5,11 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.RomiDrivetrain;
 
 /* - A TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
-public class TurnDegreesPID extends CommandBase {
+public class TurnDegreesPID extends Command {
   // - Initializing Drivetrain, PID controller, and supplier variables
   private RomiDrivetrain drive;
   private PIDController pid;
