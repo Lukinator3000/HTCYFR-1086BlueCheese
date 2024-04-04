@@ -45,18 +45,18 @@ When your Romi Robot Kit finally delivers, you should see a Polulu box with all 
 1. Pull out and open up the circular-ish Romi chassis with the pre-soldered 32U4 control board.
 2. Take out the 2 motor clips and firmly press them into the Romi chassis on both sides until their bottoms become even with the bottom of the chassis, the open clip-y side facing away from the chassis and the upper handles pointed up. You’ll likely have to click in the motor clips a couple times before they get into the correct place.
 3. Get out the 2 Mini plastic gearmotors and wheel parts.
-  1. Insert the gearmotors into the motor clips, making sure the little spikes seamlessly go inside the little holes without bending.
-  2. Open up the wheel parts and try your best to get the tires onto the wheel hubs (it may take a few tries)
-  3. Align and press the wheels’ protruding center slot into the gearmotors until fully in.
+   1. Insert the gearmotors into the motor clips, making sure the little spikes seamlessly go inside the little holes without bending.
+   2. Open up the wheel parts and try your best to get the tires onto the wheel hubs (it may take a few tries)
+   3. Align and press the wheels’ protruding center slot into the gearmotors until fully in.
 4. Take out the ball caster materials.
-  1. Flip the chassis over and put three rollers into the crevices of each of the 2 roller slots.
-  2. Place the ball casters on top of the roller slots and press in the caster chassis on top of them until everything snaps in.
+   1. Flip the chassis over and put three rollers into the crevices of each of the 2 roller slots.
+   2. Place the ball casters on top of the roller slots and press in the caster chassis on top of them until everything snaps in.
 5. Place and screw in the Raspberry Pi above the control board using standoffs.
-  1. Open the battery compartment and place two washers in the middle row of the long battery compartment, each two columns away from the ends.
-  2. Insert two standoffs inside those specific holes in the Romi board and with your hands, screw the standouts into the washers.
-  3. Parallel to the standoffs are another set of holes to screw in the other standoffs (the holes make corners of a rectangle). Carefully hold up a washer at the bottom of the holes with a finger and screw in the two other standouts (you may want another person to help with this).
-  4. Get out the Raspberry Pi you bought from its box and align the corners of the Pi to the standoffs and the other pin slots, carefully sliding in the pointy row of the Raspberry pi to those slots until snug.
-  5. Place screws in the holes of the Raspberry Pi where the standoffs are and start screwing them in until the Pi is secured.
+   1. Open the battery compartment and place two washers in the middle row of the long battery compartment, each two columns away from the ends.
+   2. Insert two standoffs inside those specific holes in the Romi board and with your hands, screw the standouts into the washers.
+   3. Parallel to the standoffs are another set of holes to screw in the other standoffs (the holes make corners of a rectangle). Carefully hold up a washer at the bottom of the holes with a finger and screw in the two other standouts (you may want another person to help with this).
+   4. Get out the Raspberry Pi you bought from its box and align the corners of the Pi to the standoffs and the other pin slots, carefully sliding in the pointy row of the Raspberry pi to those slots until snug.
+   5. Place screws in the holes of the Raspberry Pi where the standoffs are and start screwing them in until the Pi is secured.
 6. Open up the battery compartment on the bottom of the Romi and insert your 6 Double-A batteries that will give the Romi power. Ensure that the negative (flat) side of each battery is placed on the spring ends of the battery slots.
 7. To check if the Romi’s assembled properly, press the little on-button at the bottom-left corner of the control board. You should hear a beep and lights come on, telling us that it works. To turn off the Romi, move the little switch adjacent to the power button to ‘off’ and press the power button again.
 
