@@ -6,10 +6,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController; // - Automatically imported when added
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.TankDrive; // - Automatically imported when added
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.romi.OnBoardIO;
 import edu.wpi.first.wpilibj.romi.OnBoardIO.ChannelMode;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController; // - Automatically imported when added
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -32,6 +34,18 @@ public class RobotContainer {
 
   // Assumes a gamepad plugged into channel 0
   private final Joystick m_controller = new Joystick(0);
+  /*
+   * - If you want to switch to a CommandJoystick, use this statement:
+   *     private final Joystick joy = new Joystick(0);
+   */
+
+  private final CommandXboxController xbox = new CommandXboxController(0);
+  /*
+   * - XboxController works similarly to Joystick, but its premade methods are tailored to 
+   *    the specific buttons and joystick axes on an Xbox controller
+   * - CommandXboxController has methods that enable the buttons and other triggers on an xbox controller
+   *    to call a command to the CommandScheduler
+   */
 
   // Create SmartDashboard chooser for autonomous routines
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -64,6 +78,11 @@ public class RobotContainer {
     // is scheduled over it.
     m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
 
+    // - When 'a' button is pressed on the xbox controller, the TankDrive command is toggled on/off, essentially switching the default command
+    xbox.a().toggleOnTrue(
+      new TankDrive(m_drivetrain, () -> xbox.getHID().getLeftY(), () -> xbox.getHID().getRightY())); 
+      // - ".getHID()" reverts CommandXboxController object to a regular XboxController object
+
     // Example of how to use the onboard IO
     Trigger onboardButtonA = new Trigger(m_onboardIO::getButtonAPressed);
     onboardButtonA
@@ -92,7 +111,6 @@ public class RobotContainer {
    */
   public Command getArcadeDriveCommand() {
     return new ArcadeDrive(
-        m_drivetrain, () -> -m_controller.getRawAxis(1), () -> -m_controller.getRawAxis(0));
-        // - Changed the raw axis number in the third argument from 2 to 0, assigning turning control to the 'A' and 'D' keys
+        m_drivetrain, () -> -m_controller.getRawAxis(1), () -> -m_controller.getRawAxis(2));
   }
 }
