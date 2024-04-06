@@ -39,6 +39,7 @@ public class ArcadeDrive extends Command {
   @Override
   public void execute() {
     m_drivetrain.arcadeDrive(m_xaxisSpeedSupplier.get(), m_zaxisRotateSupplier.get());
+    // - ".get()" returns a Double value given by a Supplier<Double>
   }
 
   // Called once the command ends or is interrupted.
