@@ -38,7 +38,8 @@ public class ArcadeDrive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drivetrain.arcadeDrive(m_xaxisSpeedSupplier.get(), m_zaxisRotateSupplier.get()); // - ".get()" returns a Double value given by a Supplier<Double>
+    m_drivetrain.arcadeDrive(m_xaxisSpeedSupplier.get(), m_zaxisRotateSupplier.get()); 
+    // - ".get()" returns a Double value given by a Supplier<Double>
   }
 
   // Called once the command ends or is interrupted.
