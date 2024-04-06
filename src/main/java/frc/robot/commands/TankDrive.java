@@ -1,4 +1,4 @@
-package frc.robot.commands; // - Make sure to type this package when making new command files
+package frc.robot.commands; // - Necessary package statement that's automatically written when adding a java file to this commands folder
 
 // - Automatically written imports
 import java.util.function.Supplier;
