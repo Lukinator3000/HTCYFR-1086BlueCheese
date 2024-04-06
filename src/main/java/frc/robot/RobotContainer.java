@@ -10,8 +10,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
-import frc.robot.commands.SquareDrive; // - Automatically imported when added
-import frc.robot.commands.TankDrive; 
+import frc.robot.commands.SquareDrive;
+import frc.robot.commands.TankDrive;
+import frc.robot.commands.TurnDegreesPID; // - Automatically imported when added
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.romi.OnBoardIO;
 import edu.wpi.first.wpilibj.romi.OnBoardIO.ChannelMode;
@@ -83,6 +84,10 @@ public class RobotContainer {
     xbox.a().toggleOnTrue(
       new TankDrive(m_drivetrain, () -> xbox.getHID().getLeftY(), () -> xbox.getHID().getRightY())); 
       // - ".getHID()" reverts CommandXboxController object to a regular XboxController object
+    
+    // - When 'b' button is pressed on the xbox controller, the TurnDegreesPID command activates
+    xbox.b().onTrue(
+      new TurnDegreesPID(90, m_drivetrain));
 
     // Example of how to use the onboard IO
     Trigger onboardButtonA = new Trigger(m_onboardIO::getButtonAPressed);
