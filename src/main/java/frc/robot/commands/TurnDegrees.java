@@ -32,7 +32,7 @@ public class TurnDegrees extends Command {
   public void initialize() {
     // Set motors to stop, read encoder values for starting point
     m_drive.arcadeDrive(0, 0);
-    m_drive.resetEncoders();
+    m_drive.resetEncoders(); // - Resets drivetrain encoder measurements back to 0
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -56,8 +56,20 @@ public class TurnDegrees extends Command {
        or 5.551 inches. We then take into consideration the width of the tires.
     */
     double inchPerDegree = Math.PI * 5.551 / 360;
+    
     // Compare distance travelled from start to distance based on degree turn
+    // - Returns true if the amount of rotational difference (in Z axis) since the start reaches the desired number of degrees
     return getAverageTurningDistance() >= (inchPerDegree * m_degrees);
+
+    /*
+     * - You also use the Romi gyro angle measurements to return true if the rotational displacement (in Z axis) 
+     *    reaches the desired number of degrees. Here's a statement to do so:
+     *    
+     *    return Math.abs(drive.getGyroAngleZ()) >= degrees - 5;
+     * 
+     *    (Note: I added the "- 5" to act as an offset to negate my Romi's gyro measurement drift. You can edit/remove it if your
+     *            Romi's Gyro doesn't have drift or has it at a different amount of it than mine.)
+     */
   }
 
   private double getAverageTurningDistance() {

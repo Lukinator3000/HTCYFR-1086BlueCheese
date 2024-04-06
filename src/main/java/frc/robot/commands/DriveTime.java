@@ -30,7 +30,7 @@ public class DriveTime extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_startTime = System.currentTimeMillis();
+    m_startTime = System.currentTimeMillis(); // - Initializes the current time (in milliseconds) from the System clock to startTime
     m_drive.arcadeDrive(0, 0);
   }
 
@@ -49,6 +49,7 @@ public class DriveTime extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    // - When the difference between the current time and start time reaches duration, it returns true
     return (System.currentTimeMillis() - m_startTime) >= m_duration;
   }
 }
