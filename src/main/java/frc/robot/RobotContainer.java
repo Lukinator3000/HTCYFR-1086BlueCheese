@@ -80,7 +80,7 @@ public class RobotContainer {
 
     // - When 'a' button is pressed on the xbox controller, the TankDrive command is toggled on/off, essentially switching the default command
     xbox.a().toggleOnTrue(
-      new TankDrive(m_drivetrain, () -> xbox.getHID().getLeftY(), () -> xbox.getHID().getRightY())); 
+      new TankDrive(m_drivetrain, () -> -xbox.getHID().getLeftY(), () -> -xbox.getHID().getRightY())); 
       // - ".getHID()" reverts CommandXboxController object to a regular XboxController object
 
     // Example of how to use the onboard IO

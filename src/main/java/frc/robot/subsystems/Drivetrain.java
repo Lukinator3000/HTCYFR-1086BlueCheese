@@ -56,6 +56,16 @@ public class Drivetrain extends SubsystemBase {
     m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
   }
 
+
+  // - Methods to set speed on specific wheel motors to allow tank drive
+  public void setLeftMotor(double value) {
+    m_leftMotor.set(value);
+  }
+  public void setRightMotor(double value) { 
+    m_rightMotor.set(value);
+  }
+
+
   public void resetEncoders() {
     m_leftEncoder.reset();
     m_rightEncoder.reset();
