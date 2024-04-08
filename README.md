@@ -43,5 +43,3 @@ Most of the information on imaging and installations from this episode was gathe
 
 - [FRC Control System Docs: Imaging your Romi section](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html)
 - [Adam Steinman's "Getting started with Romi for FIRST" YouTube video](https://www.youtube.com/watch?v=mop51tpWWcA)
-
-- []()
