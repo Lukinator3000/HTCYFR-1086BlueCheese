@@ -63,3 +63,6 @@ When your Romi Robot Kit finally delivers, you should see a Polulu box with all 
 ### Additional Sources
 
 Most of the information on the steps to assembly was gathered from the following sources. Please check them out if you want more thorough tutorials.
+
+- [FRC Control System Docs: Romi Hardware & Assembly section](https://docs.wpilib.org/en/stable/docs/romi-robot/hardware.html)
+- [Nicholas Conrey's "ROMI Robot Build Tutorial" YouTube Playlist](https://www.youtube.com/playlist?list=PLPvvlNaU6q96nweKyGx7flZ0YGhOuJSnT)
