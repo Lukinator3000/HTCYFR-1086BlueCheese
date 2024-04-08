@@ -65,7 +65,7 @@ public class TurnDegrees extends Command {
      * - You also use the Romi gyro angle measurements to return true if the rotational displacement (in Z axis) 
      *    reaches the desired number of degrees. Here's a statement to do so:
      *    
-     *    return Math.abs(drive.getGyroAngleZ()) >= degrees - 5;
+     *    return Math.abs(m_drive.getGyroAngleZ()) >= m_degrees - 5;
      * 
      *    (Note: I added the "- 5" to act as an offset to negate my Romi's gyro measurement drift. You can edit/remove it if your
      *            Romi's Gyro doesn't have drift or has it at a different amount of it than mine.)
