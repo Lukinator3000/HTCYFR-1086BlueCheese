@@ -1,6 +1,6 @@
 # HTCYFR Episode 1: Introduction
 
-Since there hasn't been any coding yet, this branch just give you some helpful resource links and advice to prepare you for programming Romis.
+Since there hasn't been any coding yet, this and the next few branches will give you some helpful information, resource links, and advice to prepare you for programming Romis.
 
 ## Prerequisites
 
