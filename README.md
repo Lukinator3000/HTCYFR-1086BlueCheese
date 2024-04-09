@@ -1,7 +1,6 @@
 # HTCYFR Episode 1: Introduction
 
-Welcome to the supplementary GitHub page for the HTCYFR tutorial series!
-This GitHub is intended to store the course project files and other information from the tutorial videos for you to browse and learn from. Since there hasn't been any coding yet, this branch just give you some helpful resource links and advice to prepare you for programming Romis.
+Since there hasn't been any coding yet, this branch just give you some helpful resource links and advice to prepare you for programming Romis.
 
 ## Prerequisites
 
