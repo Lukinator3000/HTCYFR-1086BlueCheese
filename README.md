@@ -35,7 +35,7 @@ Here's a list of links to all the major website and other applications gone thro
 - [WPILibPi Image Release GitHub Page](https://github.com/wpilibsuite/WPILibPi/releases?scrlybrkr=aa6b855b): the place to download the latest WPILibPi image file for your microSD card
 - [BalenaEtcher Website](https://etcher.balena.io/): the website to download BalenaEtcher for flashing the image
 - [10.0.0.2](http://10.0.0.2/) or [wpilibpi.local](http://wpilibpi.local/): the link to access the Romi Raspberry Pi dashboard when connected to its Wi-Fi network
-- [WPILib Release GitHub Page](https://github.com/wpilibsuite/allwpilib/releases/tag/v2024.3.1): the place to download the latest WPILib version, also found in the [WPILib Installation Guide section in the FRC Control System Docs](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html)
+- [WPILib Release GitHub Page](https://github.com/wpilibsuite/allwpilib/releases/tag/v2024.3.1/releases): the place to download the latest WPILib version, also found in the [WPILib Installation Guide section in the FRC Control System Docs](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html)
 
 ### Additional Sources
 
