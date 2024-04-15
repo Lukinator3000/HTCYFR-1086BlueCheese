@@ -2,7 +2,7 @@
 
 ## Moving onto Code
 
-Now that we're getting into code, these README files will be a lot briefer for upcoming episode branches. Instead, there should be some documentation from me and WPILib to explain to you the code in the branch. With that said, there are some important things I want to clarify:
+Now that we're getting into code, these README files will be a lot briefer for upcoming episode branches. Instead, there should be some documentation from me and WPILib to explain to you the code in the branch. With that said, there are some important things I want to clarify (some of which I already stated in the main branch README file):
 
 - **The bulk of the code provided belongs to FIRST and WPILib!** For this tutorial series, I will primarily be writing on top of premade example code, including code comments, that was written by the contributors for FIRST and WPILib. The java files made by them should have a copyright statement at the top of the file, and there's also the WPILib-License.md file that describes their copyright conditions.
 - **I will differentiate my own code comments with a "- ".** If you see a code comment "// - with a hyphen before it, like this" then it's my own documentation that I added to explain certain code aspects, mostly for the code I typed. Any other code comments without the leading hyphen is likely pre-written by WPILib.
