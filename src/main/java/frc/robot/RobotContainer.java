@@ -86,7 +86,7 @@ public class RobotContainer {
       // - ".getHID()" reverts CommandXboxController object to a regular XboxController object
     
     // - When 'b' button is pressed on the xbox controller, the TurnDegreesPID command activates
-    xbox.b().onTrue(
+    xbox.b().onTrue( // - Consider substituting onTrue() with toggleOnTrue(), in case your Romi's PID Controller gets stuck barely off the setpoint value
       new TurnDegreesPID(90, m_drivetrain));
 
     // Example of how to use the onboard IO

@@ -13,7 +13,7 @@ public class TurnDegreesPID extends Command {
   // - Initializing Drivetrain, PID controller, and supplier variables
   private final Drivetrain drive;
   private final Supplier<Double> measurement;
-  private final PIDController pid = new PIDController(0, 0, 0);
+  private final PIDController pid = new PIDController(0.012, 0.001, 0.002);
 
   /**
    * - Turns robot to the specified angle using a PID feedback loop
@@ -40,11 +40,6 @@ public class TurnDegreesPID extends Command {
     SmartDashboard.putData("Turn PID Controller", pid);
   }
 
-  // - Function to using the calculate method of the PIDController to get turn speed
-  public double getTurnSpeedCalc() {
-    return MathUtil.clamp(-pid.calculate(measurement.get(), pid.getSetpoint()), -1, 1);
-}
-
   @Override
   public void initialize() {
     pid.reset(); // - Resets previous error (distance from setpoint) in PID controller
@@ -64,7 +59,7 @@ public class TurnDegreesPID extends Command {
   }
 
   // - PID controller calculates the next speed value based on how close measurement is to the setpoint
-  public double getTurnSpeedCalc() {
+  public double getSpeedCalc() {
     // - 'clamp()' limits the calculation to no lower than argument 'low' and no higher than argument 'high'
     return MathUtil.clamp( 
       -pid.calculate(measurement.get(), pid.getSetpoint()), -1 /* - Low bound */, 1 /* - High bound */);
