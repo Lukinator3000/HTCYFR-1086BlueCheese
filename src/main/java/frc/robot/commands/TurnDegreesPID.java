@@ -37,7 +37,7 @@ public class TurnDegreesPID extends Command {
     SmartDashboard.putNumber("PID - Calc", getSpeedCalc());
     SmartDashboard.putNumber("PID - AngleMeas", measurement.get());
     SmartDashboard.putNumber("PID - Setpoint", pid.getSetpoint());
-    SmartDashboard.putData("Turn PID Controller", pid);
+    SmartDashboard.putData("PID Controller", pid);
   }
 
   @Override
