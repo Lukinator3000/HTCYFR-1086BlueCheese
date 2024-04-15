@@ -13,7 +13,7 @@ As of current, Blue Cheese 1086 already has some Romis already assembled and ima
 - The Romi Robot Kit for FIRST should be bought at [Pololu's website](https://www.pololu.com/product/4022), the manufacturer of the Romi.
 - A Raspberry Pi can be bought from the [Amazon link](https://www.amazon.com/gp/product/B07BFH96M3/) in the FRC Control System Docs mentioned previously or from one of the vendors linked in the official [Raspberry Pi site](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/). The Raspberry Pi vendors tend to have cheaper prices, but you may get a better deal with the shipping price from the Amazon link.
 - Any 6 Double-A batteries will do, but the FRC Control System Docs suggest rechargeable ones from [this Amazon link](https://www.amazon.com/gp/product/B07TW9T8JW/?th=1). You also need to buy a micro USB charger to charge the batteries.
-- The [microSD card Amazon link](https://www.amazon.com/dp/B073K14CVB/) from the FRC Control System Docs is recommended since it also comes with an adapter, allowing the microSD to be imaged inside of a regular SD card. The site also recommends that the microSD card is 8 GB or larger.
+- The [microSD card Amazon link](https://www.amazon.com/gp/product/B0779V61XB/) from the FRC Control System Docs is recommended since it also comes with an adapter, allowing the microSD to be imaged inside of a regular SD card. The site also recommends that the microSD card is 8 GB or larger.
 
 ### Personal Computer
 
