@@ -40,6 +40,11 @@ public class TurnDegreesPID extends Command {
     SmartDashboard.putData("Turn PID Controller", pid);
   }
 
+  // - Function to using the calculate method of the PIDController to get turn speed
+  public double getTurnSpeedCalc() {
+    return MathUtil.clamp(-pid.calculate(measurement.get(), pid.getSetpoint()), -1, 1);
+}
+
   @Override
   public void initialize() {
     pid.reset(); // - Resets previous error (distance from setpoint) in PID controller
@@ -55,12 +60,11 @@ public class TurnDegreesPID extends Command {
     SmartDashboard.putNumber("PID - Calc", getSpeedCalc());
     SmartDashboard.putNumber("PID - AngleMeas", measurement.get());
     SmartDashboard.putNumber("PID - Setpoint", pid.getPositionError());
-    SmartDashboard.putNumber("PID - Error", pid.getPositionError()); // Outputs the current difference between measurement & setpoint
     SmartDashboard.putBoolean("Finished", isFinished()); // Outputs true on SmartDashboard when the PID loop ends
   }
 
   // - PID controller calculates the next speed value based on how close measurement is to the setpoint
-  public double getSpeedCalc() {
+  public double getTurnSpeedCalc() {
     // - 'clamp()' limits the calculation to no lower than argument 'low' and no higher than argument 'high'
     return MathUtil.clamp( 
       -pid.calculate(measurement.get(), pid.getSetpoint()), -1 /* - Low bound */, 1 /* - High bound */);
