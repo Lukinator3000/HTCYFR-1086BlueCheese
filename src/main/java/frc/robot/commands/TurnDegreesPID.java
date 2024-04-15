@@ -13,7 +13,8 @@ public class TurnDegreesPID extends Command {
   // - Initializing Drivetrain, PID controller, and supplier variables
   private final Drivetrain drive;
   private final Supplier<Double> measurement;
-  private final PIDController pid = new PIDController(0.012, 0.001, 0.002);
+  private final PIDController pid = new PIDController(0.011, 0.002, 0.001); 
+  // - The values for P, I, and, D depend on what you find while tuning your Romi; these are the values that I found my Romi to work best with
 
   /**
    * - Turns robot to the specified angle using a PID feedback loop
@@ -23,7 +24,7 @@ public class TurnDegreesPID extends Command {
    * @param pidInput The PID Controller to calculate turn speed based on the relationship between current and target angle. 
   */
   public TurnDegreesPID(double targetAngle, Drivetrain drive) {
-    this.drive = drive;
+    this.drive = drive; // - 'this' is used to clarify the speed variable from this class and not the constructor argument
     measurement = () -> drive.getGyroAngleZ();
 
     // - Establishes targetAngle as the setpoint for the PID controller
@@ -34,10 +35,10 @@ public class TurnDegreesPID extends Command {
     pid.setTolerance(2); 
 
     // - Puts these values into SmartDashboard at the start of simulation, before the command is even scheduled
+    SmartDashboard.putData("PID Controller", pid);
     SmartDashboard.putNumber("PID - Calc", getSpeedCalc());
     SmartDashboard.putNumber("PID - AngleMeas", measurement.get());
     SmartDashboard.putNumber("PID - Setpoint", pid.getSetpoint());
-    SmartDashboard.putData("PID Controller", pid);
   }
 
   @Override

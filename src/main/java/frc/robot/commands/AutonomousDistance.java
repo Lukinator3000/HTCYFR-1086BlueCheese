@@ -7,6 +7,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
+/* - An AutonomousDistance sequential command that makes the Romi go back and forth using DriveDistance and TurnDegrees */
 public class AutonomousDistance extends SequentialCommandGroup {
   /**
    * Creates a new Autonomous Drive based on distance. This will drive out for a specified distance,

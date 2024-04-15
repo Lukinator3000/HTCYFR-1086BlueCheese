@@ -85,6 +85,7 @@ public class Drivetrain extends SubsystemBase {
     return m_rightEncoder.getDistance();
   }
 
+  // - Finds the mean of the distances (in inches) measured by both left and right encoders
   public double getAverageDistanceInch() {
     return (getLeftDistanceInch() + getRightDistanceInch()) / 2.0;
   }
@@ -116,6 +117,7 @@ public class Drivetrain extends SubsystemBase {
     return m_accelerometer.getZ();
   }
 
+  // - Getter methods for retrieving Romi angle measurements from the gyro object
   /**
    * Current angle of the Romi around the X-axis.
    *
@@ -124,7 +126,6 @@ public class Drivetrain extends SubsystemBase {
   public double getGyroAngleX() {
     return m_gyro.getAngleX();
   }
-
   /**
    * Current angle of the Romi around the Y-axis.
    *
@@ -133,14 +134,13 @@ public class Drivetrain extends SubsystemBase {
   public double getGyroAngleY() {
     return m_gyro.getAngleY();
   }
-
   /**
    * Current angle of the Romi around the Z-axis.
    *
    * @return The current angle of the Romi in degrees
    */
   public double getGyroAngleZ() {
-    return m_gyro.getAngleZ();
+    return m_gyro.getAngleZ(); // - Angle Z is generally the rotation axis we want to check most frequently from the gyro
   }
 
   /** Reset the gyro. */
@@ -151,5 +151,19 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+
+    /*
+     * - If you want to always display sensor data when the robot is active, the drivetrain's periodic() method is a good place to do so
+     * 
+     *   Example code:
+     *   // - Outputting Encoder distance measurements to SmartDashboard
+     *   SmartDashboard.putNumber("Left Encoder Distance", getLeftDistanceInch());
+     *   SmartDashboard.putNumber("Right Encoder Distance", getRightDistanceInch());
+     * 
+     *   // - Outputting Gyro angle measurements to SmartDashboard
+     *   SmartDashboard.putNumber("Angle X", gyro.getAngleX());
+     *   SmartDashboard.putNumber("Angle Y", gyro.getAngleY());
+     *   SmartDashboard.putNumber("Angle Z", gyro.getAngleZ()); 
+     */
   }
 }

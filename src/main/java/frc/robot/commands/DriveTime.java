@@ -7,6 +7,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
+/* - A DriveTime autonomous command that instructs your Romi to drive for certain duration of time */
 public class DriveTime extends Command {
   private final double m_duration;
   private final double m_speed;

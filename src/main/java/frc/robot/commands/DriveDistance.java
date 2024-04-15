@@ -7,6 +7,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
+/* - A DriveDistance autonomous command that instructs your Romi to drive until it reaches a certain distance (in inches) */
 public class DriveDistance extends Command {
   private final Drivetrain m_drive;
   private final double m_distance;

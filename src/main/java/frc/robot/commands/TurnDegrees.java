@@ -7,6 +7,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
+/* - A TurnDegrees autonomous command that instructs your Romi to turn until it reaches a certain number of degrees rotated */
 public class TurnDegrees extends Command {
   private final Drivetrain m_drive;
   private final double m_degrees;
